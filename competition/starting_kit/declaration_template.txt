@@ -1,0 +1,7 @@
+I confirm that I did not train on any frame listed in forbidden_frames.txt,
+and that all submitted detections were produced by a model trained only on
+synthetic data I generated.
+
+Team / individual name: ___________________________________________________
+Date (YYYY-MM-DD):       ___________________________________________________
+Submission tag:          ___________________________________________________

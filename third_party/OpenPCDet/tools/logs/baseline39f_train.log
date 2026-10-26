@@ -1,0 +1,278 @@
+2026-07-28 06:39:38,280   INFO  **********************Start logging**********************
+2026-07-28 06:39:38,280   INFO  CUDA_VISIBLE_DEVICES=4
+2026-07-28 06:39:38,280   INFO  Training with a single process
+2026-07-28 06:39:38,280   INFO  cfg_file         cfgs/lumpi_models/pointpillar_lumpi_7cls.yaml
+2026-07-28 06:39:38,280   INFO  batch_size       2
+2026-07-28 06:39:38,280   INFO  epochs           1
+2026-07-28 06:39:38,280   INFO  workers          2
+2026-07-28 06:39:38,280   INFO  extra_tag        baseline39f_truck_van_bus_r4_from35b_e1
+2026-07-28 06:39:38,280   INFO  ckpt             None
+2026-07-28 06:39:38,281   INFO  pretrained_model /data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/output/lumpi_models/pointpillar_lumpi_7cls/baseline35b_pseudo_real217_balanced_r20_e4/ckpt/checkpoint_epoch_4.pth
+2026-07-28 06:39:38,281   INFO  launcher         none
+2026-07-28 06:39:38,281   INFO  tcp_port         18888
+2026-07-28 06:39:38,281   INFO  sync_bn          False
+2026-07-28 06:39:38,281   INFO  fix_random_seed  True
+2026-07-28 06:39:38,281   INFO  ckpt_save_interval 1
+2026-07-28 06:39:38,281   INFO  local_rank       None
+2026-07-28 06:39:38,281   INFO  max_ckpt_save_num 30
+2026-07-28 06:39:38,281   INFO  merge_all_iters_to_one_epoch False
+2026-07-28 06:39:38,281   INFO  set_cfgs         ['DATA_CONFIG.DATA_PATH', '/data/TY/ECCV/UCF_LUMPI/data/converted/baseline39f_truck_van_bus_r4_from35b', 'OPTIMIZATION.LR', '0.0001']
+2026-07-28 06:39:38,281   INFO  max_waiting_mins 0
+2026-07-28 06:39:38,281   INFO  start_epoch      0
+2026-07-28 06:39:38,281   INFO  num_epochs_to_eval -1
+2026-07-28 06:39:38,281   INFO  save_to_file     False
+2026-07-28 06:39:38,281   INFO  use_tqdm_to_record False
+2026-07-28 06:39:38,281   INFO  logger_iter_interval 50
+2026-07-28 06:39:38,281   INFO  ckpt_save_time_interval 300
+2026-07-28 06:39:38,281   INFO  wo_gpu_stat      False
+2026-07-28 06:39:38,281   INFO  use_amp          False
+2026-07-28 06:39:38,281   INFO  cfg.ROOT_DIR: /data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet
+2026-07-28 06:39:38,281   INFO  cfg.LOCAL_RANK: 0
+2026-07-28 06:39:38,281   INFO  cfg.CLASS_NAMES: ['Car', 'Bicycle', 'Motorcycle', 'Bus', 'Truck', 'Van', 'Unknown']
+2026-07-28 06:39:38,281   INFO  ----------- DATA_CONFIG -----------
+2026-07-28 06:39:38,281   INFO  cfg.DATA_CONFIG.DATASET: CustomDataset
+2026-07-28 06:39:38,281   INFO  cfg.DATA_CONFIG.DATA_PATH: /data/TY/ECCV/UCF_LUMPI/data/converted/baseline39f_truck_van_bus_r4_from35b
+2026-07-28 06:39:38,281   INFO  cfg.DATA_CONFIG.POINT_CLOUD_RANGE: [-40, -40, -5, 40, 40, 5]
+2026-07-28 06:39:38,282   INFO  ----------- MAP_CLASS_TO_KITTI -----------
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Car: Car
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Bicycle: Cyclist
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Motorcycle: Cyclist
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Bus: Van
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Truck: Truck
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Van: Van
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Unknown: Misc
+2026-07-28 06:39:38,282   INFO  ----------- DATA_SPLIT -----------
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.DATA_SPLIT.train: train
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.DATA_SPLIT.test: val
+2026-07-28 06:39:38,282   INFO  ----------- INFO_PATH -----------
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.INFO_PATH.train: ['custom_infos_train.pkl']
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.INFO_PATH.test: ['custom_infos_val.pkl']
+2026-07-28 06:39:38,282   INFO  ----------- POINT_FEATURE_ENCODING -----------
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.encoding_type: absolute_coordinates_encoding
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.used_feature_list: ['x', 'y', 'z']
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.src_feature_list: ['x', 'y', 'z']
+2026-07-28 06:39:38,282   INFO  ----------- DATA_AUGMENTOR -----------
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.DATA_AUGMENTOR.DISABLE_AUG_LIST: ['placeholder']
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.DATA_AUGMENTOR.AUG_CONFIG_LIST: [{'NAME': 'random_world_flip', 'ALONG_AXIS_LIST': ['x', 'y']}, {'NAME': 'random_world_rotation', 'WORLD_ROT_ANGLE': [-0.78539816, 0.78539816]}, {'NAME': 'random_world_scaling', 'WORLD_SCALE_RANGE': [0.95, 1.05]}]
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG.DATA_PROCESSOR: [{'NAME': 'mask_points_and_boxes_outside_range', 'REMOVE_OUTSIDE_BOXES': True}, {'NAME': 'shuffle_points', 'SHUFFLE_ENABLED': {'train': True, 'test': False}}, {'NAME': 'transform_points_to_voxels', 'VOXEL_SIZE': [0.15625, 0.15625, 10], 'MAX_POINTS_PER_VOXEL': 32, 'MAX_NUMBER_OF_VOXELS': {'train': 60000, 'test': 80000}}]
+2026-07-28 06:39:38,282   INFO  cfg.DATA_CONFIG._BASE_CONFIG_: cfgs/dataset_configs/lumpi_custom_dataset.yaml
+2026-07-28 06:39:38,282   INFO  ----------- MODEL -----------
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.NAME: PointPillar
+2026-07-28 06:39:38,283   INFO  ----------- VFE -----------
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.VFE.NAME: PillarVFE
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.VFE.WITH_DISTANCE: False
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.VFE.USE_ABSLOTE_XYZ: True
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.VFE.USE_NORM: True
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.VFE.NUM_FILTERS: [64]
+2026-07-28 06:39:38,283   INFO  ----------- MAP_TO_BEV -----------
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.MAP_TO_BEV.NAME: PointPillarScatter
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.MAP_TO_BEV.NUM_BEV_FEATURES: 64
+2026-07-28 06:39:38,283   INFO  ----------- BACKBONE_2D -----------
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.BACKBONE_2D.NAME: BaseBEVBackbone
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.BACKBONE_2D.LAYER_NUMS: [3, 5, 5]
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.BACKBONE_2D.LAYER_STRIDES: [2, 2, 2]
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.BACKBONE_2D.NUM_FILTERS: [64, 128, 256]
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.BACKBONE_2D.UPSAMPLE_STRIDES: [1, 2, 4]
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.BACKBONE_2D.NUM_UPSAMPLE_FILTERS: [128, 128, 128]
+2026-07-28 06:39:38,283   INFO  ----------- DENSE_HEAD -----------
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.NAME: AnchorHeadSingle
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.CLASS_AGNOSTIC: False
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.USE_DIRECTION_CLASSIFIER: True
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.DIR_OFFSET: 0.78539
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.DIR_LIMIT_OFFSET: 0.0
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.NUM_DIR_BINS: 2
+2026-07-28 06:39:38,283   INFO  cfg.MODEL.DENSE_HEAD.ANCHOR_GENERATOR_CONFIG: [{'class_name': 'Car', 'anchor_sizes': [[3.65, 1.54, 1.26]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.15], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'Bicycle', 'anchor_sizes': [[1.28, 0.52, 1.27]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.16], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.5, 'unmatched_threshold': 0.35}, {'class_name': 'Motorcycle', 'anchor_sizes': [[1.63, 0.65, 1.22]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.17], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.5, 'unmatched_threshold': 0.35}, {'class_name': 'Bus', 'anchor_sizes': [[8.01, 3.08, 3.32]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.15], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.55, 'unmatched_threshold': 0.4}, {'class_name': 'Truck', 'anchor_sizes': [[5.38, 2.14, 2.39]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.15], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.55, 'unmatched_threshold': 0.4}, {'class_name': 'Van', 'anchor_sizes': [[4.3, 1.59, 1.82]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.16], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.55, 'unmatched_threshold': 0.4}, {'class_name': 'Unknown', 'anchor_sizes': [[3.23, 1.62, 1.21]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [-2.11], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.5, 'unmatched_threshold': 0.35}]
+2026-07-28 06:39:38,284   INFO  ----------- TARGET_ASSIGNER_CONFIG -----------
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.NAME: AxisAlignedTargetAssigner
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.POS_FRACTION: -1.0
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.SAMPLE_SIZE: 512
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.NORM_BY_NUM_EXAMPLES: False
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.MATCH_HEIGHT: False
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.BOX_CODER: ResidualCoder
+2026-07-28 06:39:38,284   INFO  ----------- LOSS_CONFIG -----------
+2026-07-28 06:39:38,284   INFO  ----------- LOSS_WEIGHTS -----------
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.cls_weight: 1.0
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.loc_weight: 2.0
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.dir_weight: 0.2
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.code_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+2026-07-28 06:39:38,284   INFO  ----------- POST_PROCESSING -----------
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.SCORE_THRESH: 0.05
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.OUTPUT_RAW_SCORE: False
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.EVAL_METRIC: kitti
+2026-07-28 06:39:38,284   INFO  ----------- NMS_CONFIG -----------
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.MULTI_CLASSES_NMS: False
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_TYPE: nms_gpu
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_THRESH: 0.1
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_PRE_MAXSIZE: 4096
+2026-07-28 06:39:38,284   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_POST_MAXSIZE: 500
+2026-07-28 06:39:38,284   INFO  ----------- OPTIMIZATION -----------
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.BATCH_SIZE_PER_GPU: 2
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.NUM_EPOCHS: 12
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.OPTIMIZER: adam_onecycle
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.LR: 0.0001
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.WEIGHT_DECAY: 0.01
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.MOMENTUM: 0.9
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.MOMS: [0.95, 0.85]
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.PCT_START: 0.4
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.DIV_FACTOR: 10
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.DECAY_STEP_LIST: [8, 10]
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.LR_DECAY: 0.1
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.LR_CLIP: 1e-07
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.LR_WARMUP: False
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.WARMUP_EPOCH: 1
+2026-07-28 06:39:38,285   INFO  cfg.OPTIMIZATION.GRAD_NORM_CLIP: 10
+2026-07-28 06:39:38,285   INFO  cfg.TAG: pointpillar_lumpi_7cls
+2026-07-28 06:39:38,285   INFO  cfg.EXP_GROUP_PATH: lumpi_models
+2026-07-28 06:39:38,291   INFO  ----------- Create dataloader & network & optimizer -----------
+2026-07-28 06:39:38,303   INFO  Loading Custom dataset.
+2026-07-28 06:39:38,386   INFO  Total samples for CUSTOM dataset: 54980
+/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3526.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+2026-07-28 06:39:38,869   INFO  ==> Loading parameters from checkpoint /data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/output/lumpi_models/pointpillar_lumpi_7cls/baseline35b_pseudo_real217_balanced_r20_e4/ckpt/checkpoint_epoch_4.pth to GPU
+2026-07-28 06:39:38,951   INFO  ==> Checkpoint trained from version: pcdet+0.6.0+233f849
+2026-07-28 06:39:38,970   INFO  ==> Done (loaded 127/127)
+2026-07-28 06:39:38,972   INFO  ----------- Model PointPillar created, param count: 4893344 -----------
+2026-07-28 06:39:38,972   INFO  PointPillar(
+  (vfe): PillarVFE(
+    (pfn_layers): ModuleList(
+      (0): PFNLayer(
+        (linear): Linear(in_features=9, out_features=64, bias=False)
+        (norm): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (backbone_3d): None
+  (map_to_bev_module): PointPillarScatter()
+  (pfe): None
+  (backbone_2d): BaseBEVBackbone(
+    (blocks): ModuleList(
+      (0): Sequential(
+        (0): ZeroPad2d((1, 1, 1, 1))
+        (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+      )
+      (1): Sequential(
+        (0): ZeroPad2d((1, 1, 1, 1))
+        (1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+        (13): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (14): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (15): ReLU()
+        (16): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (17): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (18): ReLU()
+      )
+      (2): Sequential(
+        (0): ZeroPad2d((1, 1, 1, 1))
+        (1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+        (13): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (14): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (15): ReLU()
+        (16): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (17): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (18): ReLU()
+      )
+    )
+    (deblocks): ModuleList(
+      (0): Sequential(
+        (0): ConvTranspose2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (1): Sequential(
+        (0): ConvTranspose2d(128, 128, kernel_size=(2, 2), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (2): Sequential(
+        (0): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(4, 4), bias=False)
+        (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+  )
+  (dense_head): AnchorHeadSingle(
+    (cls_loss_func): SigmoidFocalClassificationLoss()
+    (reg_loss_func): WeightedSmoothL1Loss()
+    (dir_loss_func): WeightedCrossEntropyLoss()
+    (conv_cls): Conv2d(384, 98, kernel_size=(1, 1), stride=(1, 1))
+    (conv_box): Conv2d(384, 98, kernel_size=(1, 1), stride=(1, 1))
+    (conv_dir_cls): Conv2d(384, 28, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (point_head): None
+  (roi_head): None
+)
+2026-07-28 06:39:38,973   INFO  **********************Start training lumpi_models/pointpillar_lumpi_7cls(baseline39f_truck_van_bus_r4_from35b_e1)**********************
+epochs:   0%|          | 0/1 [00:00<?, ?it/s]
+train:   0%|          | 0/27490 [00:00<?, ?it/s][Aepochs:   0%|          | 0/1 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/train.py", line 237, in <module>
+    main()
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/train.py", line 178, in main
+    train_model(
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/train_utils/train_utils.py", line 180, in train_model
+    accumulated_iter = train_one_epoch(
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/train_utils/train_utils.py", line 56, in train_one_epoch
+    loss, tb_dict, disp_dict = model_func(model, batch)
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/../pcdet/models/__init__.py", line 44, in model_func
+    ret_dict, tb_dict, disp_dict = model(batch_dict)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/../pcdet/models/detectors/pointpillar.py", line 11, in forward
+    batch_dict = cur_module(batch_dict)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/../pcdet/models/backbones_3d/vfe/pillar_vfe.py", line 120, in forward
+    features = pfn(features)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/../pcdet/models/backbones_3d/vfe/pillar_vfe.py", line 33, in forward
+    part_linear_out = [self.linear(inputs[num_part*self.part:(num_part+1)*self.part])
+  File "/data/TY/ECCV/UCF_LUMPI/baselines/OpenPCDet/tools/../pcdet/models/backbones_3d/vfe/pillar_vfe.py", line 33, in <listcomp>
+    part_linear_out = [self.linear(inputs[num_part*self.part:(num_part+1)*self.part])
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/envs/lumpi_opencd/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 158.00 MiB. GPU 0 has a total capacty of 23.55 GiB of which 43.06 MiB is free. Process 3885089 has 10.75 GiB memory in use. Process 3886559 has 11.17 GiB memory in use. Process 3918370 has 1.57 GiB memory in use. Of the allocated memory 1.10 GiB is allocated by PyTorch, and 28.49 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+train:   0%|          | 0/27490 [00:01<?, ?it/s]

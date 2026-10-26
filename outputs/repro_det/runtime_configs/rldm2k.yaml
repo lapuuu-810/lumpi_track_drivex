@@ -1,0 +1,43 @@
+_BASE_CONFIG_: configs/dsvt_vfield_g0s_lumpi.yaml
+
+# D50K (test-like 50k-point) base + 2K RangeLDM domain-converted frames,
+# Person size alignment, boosted rare-class sampling.
+DATA_CONFIG:
+    DATA_PATH: '/data2/RS3D/LPP/urbantwin_lumpi_repro_check/project/data/processed/openpcdet_g0s_d50k_rldm2k'
+    INFO_PATH:
+        train: [custom_infos_train_compat.pkl]
+        test: [custom_infos_val.pkl]
+    DATA_AUGMENTOR:
+        AUG_CONFIG_LIST:
+            - NAME: gt_sampling
+              USE_ROAD_PLANE: False
+              DB_INFO_PATH: [/data2/RS3D/LPP/urbantwin_lumpi_repro_check/project/data/processed/openpcdet_g0s_d50k/custom_dbinfos_train.pkl]
+              PREPARE:
+                  filter_by_min_points: ['Person:3', 'Car:3', 'Bicycle:3', 'Motorcycle:3', 'Bus:3', 'Truck:3', 'Van:3', 'Unknown:3']
+              SAMPLE_GROUPS: ['Person:20', 'Car:12', 'Bicycle:10', 'Motorcycle:8', 'Bus:8', 'Truck:8', 'Van:6', 'Unknown:6']
+              NUM_POINT_FEATURES: 3
+              DATABASE_WITH_FAKELIDAR: False
+              REMOVE_EXTRA_WIDTH: [0.0, 0.0, 0.0]
+              LIMIT_WHOLE_SCENE: True
+            - NAME: lumpi_person_align
+              PROBABILITY: 0.85
+              REAL_DIMS: [0.99, 0.79, 1.83]
+              DIM_STD: [0.10, 0.08, 0.12]
+              KEEP_ORIGINAL_PROB: 0.20
+              CLIP_LO: [0.60, 0.50, 1.40]
+              CLIP_HI: [1.35, 1.10, 2.20]
+            - NAME: v2x_sensor_vfield
+              PROBABILITY: 0.85
+              MAX_DEFORM: 0.08
+              RANGE_NOISE_STD: 0.025
+              DROP_RATE: [0.0, 0.12]
+            - NAME: random_world_flip
+              ALONG_AXIS_LIST: ['x', 'y']
+            - NAME: random_world_rotation
+              WORLD_ROT_ANGLE: [-0.392699, 0.392699]
+            - NAME: random_world_scaling
+              WORLD_SCALE_RANGE: [0.95, 1.05]
+
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 8
+    NUM_EPOCHS: 40
